@@ -1,0 +1,19 @@
+@use "variables";
+@use "mixins";
+@use "styles";
+
+@font-face {
+  font-family: "Custom icons";
+  font-weight: normal;
+  src: url("./fonts/entertaiment-web-app.woff2");
+}
+@font-face {
+  font-family: "Outfit";
+  font-weight: 400;
+  src: url("./fonts/Outfit-Light.ttf");
+}
+@font-face {
+  font-family: "Outfit";
+  font-weight: 500;
+  src: url("./fonts/Outfit-Medium.ttf");
+}

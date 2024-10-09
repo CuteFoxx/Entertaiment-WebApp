@@ -1,0 +1,138 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Outfit";
+  font-weight: 400;
+  background-color: $primaryClr2;
+  color: $white;
+
+  padding: rem(32);
+  padding-left: rem(164);
+  padding-top: rem(64);
+
+  @include tablet {
+    padding: rem(24);
+  }
+  @include phone {
+    padding: 0;
+  }
+}
+
+.header {
+  position: fixed;
+  left: rem(32);
+  top: rem(35);
+  float: left;
+  height: 90vh;
+  max-width: rem(96);
+  width: 100%;
+
+  padding: rem(35) 0;
+  border-radius: rem(20);
+
+  background: $primaryClr4;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  @include tablet {
+    position: sticky;
+    top: rem(24);
+    left: 0;
+    float: unset;
+    height: rem(72);
+    width: 100%;
+    max-width: 100%;
+    flex-direction: unset;
+    padding: 0 rem(24);
+  }
+  @include phone {
+    top: 0;
+    left: 0;
+    border-radius: 0;
+  }
+  &__logo {
+    img {
+      @include transition;
+      width: rem(32);
+      height: rem(25.6);
+
+      &:hover {
+        transform: scale(1.05);
+        filter: brightness(0.9);
+      }
+
+      @include phone {
+        width: rem(25);
+        height: rem(20);
+      }
+    }
+  }
+  &__nav {
+    &-list {
+      display: flex;
+      flex-direction: column;
+      gap: rem(40);
+
+      @include tablet {
+        flex-direction: unset;
+        gap: rem(32);
+      }
+    }
+    &-item {
+      list-style: none;
+      a.active::before {
+        color: $white;
+      }
+      a:hover::before {
+        color: $primaryClr1;
+      }
+      a::before {
+        @include transition;
+        content: "\E805";
+        font-family: "Custom icons";
+        font-size: rem(20);
+        color: $primaryClr3;
+      }
+      a[href="/"]::before {
+        content: "\E805";
+      }
+      a[href="/Movies"]::before {
+        content: "\E806";
+      }
+      a[href="/TVSeries"]::before {
+        content: "\E807";
+      }
+      a[href="/Bookmarks"]::before {
+        content: "\E804";
+      }
+    }
+  }
+  &__avatar {
+    height: rem(40);
+    width: rem(40);
+
+    @include tablet {
+      height: rem(32);
+      width: rem(32);
+    }
+    @include phone {
+      height: rem(24);
+      width: rem(24);
+    }
+  }
+}
+.app {
+  @include container;
+}
