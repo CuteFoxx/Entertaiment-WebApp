@@ -1,11 +1,14 @@
-import { NavLink, Link, Outlet } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 const Header = () => {
   return (
     <>
       <header className="header">
         <Link to={"/"} className="header__logo">
-          <img src="/logo.svg" alt="logo" />
+          <h1>
+            Entertaiment web app
+            <img src="/logo.svg" alt="logo" />
+          </h1>
         </Link>
         <nav className="header__nav">
           <ul className="header__nav-list">
@@ -48,9 +51,6 @@ const Header = () => {
           />
         </>
       </header>
-      <main className="app">
-        <Outlet />
-      </main>
     </>
   );
 };

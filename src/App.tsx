@@ -5,6 +5,7 @@ import TVSeries from "./pages/TVSeries";
 import Bookmarked from "./pages/Bookmarked";
 import ErrorPage from "./pages/ErrorPage";
 import Root from "./pages/Root";
+import rootLoader from "./loaders/rootLoader";
 
 function App() {
   const router = createBrowserRouter([
@@ -16,18 +17,22 @@ function App() {
         {
           path: "/",
           element: <Home />,
+          loader: rootLoader,
         },
         {
           path: "/Movies",
           element: <Movies />,
+          loader: rootLoader,
         },
         {
           path: "/TVSeries",
           element: <TVSeries />,
+          loader: rootLoader,
         },
         {
           path: "/Bookmarks",
           element: <Bookmarked />,
+          loader: rootLoader,
         },
       ],
     },

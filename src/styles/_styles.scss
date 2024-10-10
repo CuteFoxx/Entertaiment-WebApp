@@ -7,6 +7,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  line-height: 1;
 }
 
 body {
@@ -27,6 +28,12 @@ body {
   }
 }
 
+h2 {
+  @include h2;
+}
+h3 {
+  @include h3;
+}
 .header {
   position: fixed;
   left: rem(32);
@@ -61,6 +68,9 @@ body {
     top: 0;
     left: 0;
     border-radius: 0;
+  }
+  h1 {
+    font-size: 0;
   }
   &__logo {
     img {
@@ -135,4 +145,16 @@ body {
 }
 .app {
   @include container;
+  padding: 0;
+}
+.movies__section {
+  .movies__wrapper {
+    padding-top: rem(32);
+  }
+}
+.movies__wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  row-gap: rem(32);
+  column-gap: rem(40);
 }
