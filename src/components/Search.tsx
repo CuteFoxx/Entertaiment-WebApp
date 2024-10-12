@@ -1,9 +1,11 @@
 const Search = ({
   placeholder,
   filterFunction,
+  setQuery,
 }: {
   placeholder: string;
   filterFunction: Function;
+  setQuery?: React.Dispatch<React.SetStateAction<string>>;
 }) => {
   return (
     <div className="search__wrapper">
@@ -11,7 +13,10 @@ const Search = ({
         className="search"
         type="text"
         placeholder={placeholder}
-        onChange={(e) => filterFunction(e.target.value)}
+        onChange={(e) => {
+          filterFunction(e.target.value);
+          setQuery(e.target.value);
+        }}
       />
     </div>
   );

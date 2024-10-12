@@ -28,7 +28,9 @@ const MovieCard = ({ data }: { data: Movie }) => {
       </div>
       <div className="movie-card__header">
         <div className="movie-card__date">{data.year}</div>
-        <div className="movie-card__category">{data.category}</div>
+        <div className={"movie-card__category" + " " + data.category}>
+          {data.category}
+        </div>
         <div className="movie-card__rating">{data.rating}</div>
       </div>
       <h3 className="movie-card__title">{data.title}</h3>

@@ -1,12 +1,16 @@
 import type { Movie } from "../interfaces/MovieInterface";
 import { useLoaderData } from "react-router-dom";
 import Search from "../components/Search";
-import { useState } from "react";
-import MovieCard from "../components/MovieCard";
+import { useEffect, useState } from "react";
+import SearchResults from "../components/SearchResults";
+import MoviesSection from "../components/MoviesSection";
+import Trending from "../components/Trending";
 
 const Home = () => {
   const data = useLoaderData() as Movie[];
   const [filteredData, setFilteredData] = useState<Movie[]>();
+  const [query, setQuery] = useState<string>("");
+  const [trending, setTrending] = useState<Movie[]>();
 
   const filterData = (query: string) => {
     setFilteredData(
@@ -16,20 +20,20 @@ const Home = () => {
     );
   };
 
+  useEffect(() => {
+    setTrending(data.filter((item) => item.isTrending === true));
+  }, []);
+
   return (
     <div>
       <Search
         placeholder="Search for movies or TV series"
         filterFunction={filterData}
+        setQuery={setQuery}
       />
-      <section className="movies__section">
-        <h2>Recommended for you</h2>
-        <div className="movies__wrapper">
-          {data?.map((item: Movie) => {
-            return <MovieCard data={item} key={item.title} />;
-          })}
-        </div>
-      </section>
+      {query && <SearchResults data={filteredData} query={query} />}
+      {!query && <Trending trending={trending} />}
+      {!query && <MoviesSection data={data} title="Recommended for you" />}
     </div>
   );
 };

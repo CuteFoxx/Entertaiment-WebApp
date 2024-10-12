@@ -46,16 +46,19 @@
   }
 }
 @mixin h2 {
-  @include title(rem(24), rem(24), 400);
+  @include title(rem(32), rem(32), 400, rem(-0.5));
 
+  @include tablet {
+    @include title(rem(32), rem(32), 400, rem(-0.5));
+  }
   @include phone {
-    @include title(rem(20));
+    @include title(rem(20), rem(20), 400, rem(-0.5));
   }
 }
 @mixin h3 {
-  @include title(rem(24), rem(24), 500);
+  @include title(rem(18), rem(18), 500);
   @include phone {
-    @include title(rem(20), rem(20), 500);
+    @include title(rem(14), rem(14), 500);
   }
 }
 @mixin h4 {

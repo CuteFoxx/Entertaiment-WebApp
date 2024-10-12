@@ -12,7 +12,7 @@ interface Movie {
     };
   };
   year: number;
-  category: "Movie" | "TV Series";
+  category: string;
   rating: string;
   isBookmarked: boolean;
   isTrending: boolean;
