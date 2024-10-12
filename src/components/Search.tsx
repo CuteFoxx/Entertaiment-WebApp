@@ -7,19 +7,21 @@ const Search = ({
   filterFunction: Function;
   setQuery?: React.Dispatch<React.SetStateAction<string>>;
 }) => {
-  return (
-    <div className="search__wrapper">
-      <input
-        className="search"
-        type="text"
-        placeholder={placeholder}
-        onChange={(e) => {
-          filterFunction(e.target.value);
-          setQuery(e.target.value);
-        }}
-      />
-    </div>
-  );
+  if (setQuery) {
+    return (
+      <div className="search__wrapper">
+        <input
+          className="search"
+          type="text"
+          placeholder={placeholder}
+          onChange={(e) => {
+            filterFunction(e.target.value);
+            setQuery(e.target.value);
+          }}
+        />
+      </div>
+    );
+  }
 };
 
 export default Search;
